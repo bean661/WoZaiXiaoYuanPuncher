@@ -1,6 +1,18 @@
 {
-  "WZXY_USERNAME": "",
-  "WZXY_PASSWORD": "",
-  "location": "",
-  "pushPlus_notifyToken": ""
+  "user_info": [
+    {
+      "WZXY_USERNAME": "155xxxx   一般为手机号",
+      "WZXY_PASSWORD": "xxxx 小程序密码",
+      "location": "1xx.xxxxxx,3x.xxxxxx 经纬度 ",
+      "pushPlus_notifyToken": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx   token",
+      "mark": "张三"
+    },
+    {
+      "WZXY_USERNAME": "15512345678",
+      "WZXY_PASSWORD": "snnusnnu",
+      "location": "xxxxxxxxx,xxxxxxxxx",
+      "pushPlus_notifyToken": "4f47xxxxxxxxxxxae8f8633269xxxxx1",
+      "mark": "李四"
+    }
+  ]
 }

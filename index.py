@@ -2,13 +2,15 @@ import requests
 import json
 import os
 import utils
+import time
 from urllib.parse import urlencode
 class WoZaiXiaoYuanPuncher:
-    def __init__(self,configs):
-        self.username = configs['WZXY_USERNAME']
-        self.password = configs['WZXY_PASSWORD']
-        self.location = configs['location']
-        self.pushPlus_notifyToken = configs['pushPlus_notifyToken']
+    def __init__(self,check_item):
+        self.username = check_item['WZXY_USERNAME']
+        self.password = check_item['WZXY_PASSWORD']
+        self.location = check_item['location']
+        self.pushPlus_notifyToken = check_item['pushPlus_notifyToken']
+        self.mark = check_item['mark']
         # JWSESSION
         self.jwsession = None
         # 打卡结果
@@ -107,6 +109,7 @@ class WoZaiXiaoYuanPuncher:
         url = 'http://www.pushplus.plus/send'
         notifyToken = self.pushPlus_notifyToken
         content = json.dumps({
+            "打卡用户":self.mark,
             "打卡项目": "健康打卡",
             "打卡情况": notifyResult,
             "打卡信息":self.sign_data,
@@ -155,9 +158,9 @@ class WoZaiXiaoYuanPuncher:
         self.sign_data =sign_data
         return sign_data
     # 返回地址信息
-def task():
+def task(check_item):
     #读取配置文件
-    configs = utils.processJson("config.json").read()
+    configs = check_item
     wzxy = WoZaiXiaoYuanPuncher(configs)
     addr = wzxy.requestAddress()
     sign_data = wzxy.getLocationData(addr)
@@ -169,6 +172,21 @@ def task():
         print("登陆失败，请检查账号信息")
     wzxy.sendNotification()
 def main_handler(event,context):
-    task()
+    with open(os.path.join(os.path.dirname(__file__), "config.json"), "r", encoding="utf-8") as f:
+        datas = json.loads(f.read())
+    print(datas)
+    _check_item = datas.get("user_info", [])[0]
+    print(len(datas.get("user_info", [])))
+    for check_item in datas.get("user_info", []):
+        task(check_item)
+        time.sleep(20)
 if __name__ == '__main__':
-    task()
+    with open(os.path.join(os.path.dirname(__file__), "config.json"), "r", encoding="utf-8") as f:
+        datas = json.loads(f.read())
+    print(datas)
+    _check_item = datas.get("user_info", [])[0]
+    print(len(datas.get("user_info", [])))
+    for check_item in datas.get("user_info", []):
+        task(check_item)
+        time.sleep(20)
+
