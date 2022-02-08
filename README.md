@@ -20,5 +20,3 @@
 - 请在国家法律法规和校方相关原则下使用。
 
 - 开发者不对任何下载者和使用者的任何行为负责。
-
-- 程序使用的所有信息均利用 Github 的 [Secrets](https://docs.github.com/cn/actions/reference/encrypted-Secrets) 加密储存。
