@@ -4,15 +4,38 @@ import os
 import utils
 import time
 from urllib.parse import urlencode
+import leancloud
+class leanCloud:
+    # 初始化 leanCloud 对象
+    def __init__(self, appId, masterKey):
+        leancloud.init(appId, master_key=masterKey)
+        self.obj = leancloud.Query('Info').first()
+
+        # 获取 jwsession
+    def getJwsession(self,number):
+        return self.obj.get('jwsession'+str(number))
+
+    # 设置 jwsession
+    def setJwsession(self, number,value):
+        self.obj.set('jwsession'+str(number), value)
+        self.obj.save()
+
+    # 判断之前是否保存过地址信息
+    def hasAddress(self):
+        if self.obj.get('hasAddress') == False or self.obj.get('hasAddress') is None:
+            return False
+        else:
+            return True
 class WoZaiXiaoYuanPuncher:
-    def __init__(self,check_item):
+    def __init__(self,check_item,jwsession,leancloud):
+        self.leancloud = leancloud
         self.username = check_item['WZXY_USERNAME']
         self.password = check_item['WZXY_PASSWORD']
         self.location = check_item['location']
         self.pushPlus_notifyToken = check_item['pushPlus_notifyToken']
         self.mark = check_item['mark']
         # JWSESSION
-        self.jwsession = None
+        self.jwsession = jwsession
         # 打卡结果
         self.status_code = 0
         # 登陆接口
@@ -158,37 +181,59 @@ class WoZaiXiaoYuanPuncher:
         self.sign_data =sign_data
         return sign_data
     # 返回地址信息
-def task(check_item):
+
+#执行顺序
+def task(check_item,jwsession,leancloud):
     #读取配置文件
-    configs = check_item
-    wzxy = WoZaiXiaoYuanPuncher(configs)
+    wzxy = WoZaiXiaoYuanPuncher(check_item=check_item,jwsession=jwsession,leancloud=leancloud)
     addr = wzxy.requestAddress()
     sign_data = wzxy.getLocationData(addr)
-    print("正在使用账号信息登录...")
-    loginStatus = wzxy.login()
-    if loginStatus:
-        wzxy.doPunchIn(sign_data)
+    # 检查jwsession是否存在 不存在则登录打卡
+    if jwsession == "" or jwsession is None:
+        print("jwsession不存在，正在使用账号信息登录...")
+        loginStatus = wzxy.login()
+        if loginStatus:
+            print("登录成功")
+            wzxy.doPunchIn(sign_data)
+            leancloud.setJwsession(count, wzxy.jwsession)
+        else:
+            print("登录失败")
+            # 如果有 jwsession，则直接打卡
     else:
-        print("登陆失败，请检查账号信息")
+        wzxy.doPunchIn(sign_data)
+        leancloud.setJwsession(count, wzxy.jwsession)
     wzxy.sendNotification()
-def main_handler(event,context):
-    with open(os.path.join(os.path.dirname(__file__), "config.json"), "r", encoding="utf-8") as f:
-        datas = json.loads(f.read())
-    print(datas)
-    _check_item = datas.get("user_info", [])[0]
-    print(len(datas.get("user_info", [])))
-    for check_item in datas.get("user_info", []):
-        task(check_item)
-        time.sleep(20)
-if __name__ == '__main__':
-    with open(os.path.join(os.path.dirname(__file__), "config.json"), "r", encoding="utf-8") as f:
-        datas = json.loads(f.read())
-    print(datas)
-    _check_item = datas.get("user_info", [])[0]
-    print(len(datas.get("user_info", [])))
-    for check_item in datas.get("user_info", []):
-        task(check_item)
-        time.sleep(20)
 
+if __name__ == '__main__':
+    #读取配置文件
+    with open(os.path.join(os.path.dirname(__file__), "config.json"), "r", encoding="utf-8") as f:
+        datas = json.loads(f.read())
+    #获取appId和Key
+    appId,masterKey= datas.get("appId"),datas.get("masterKey")
+    leancloud=leanCloud(appId=appId,masterKey=masterKey)
+    _check_item = datas.get("user_info", [])
+    count = 1
+    for check_item in _check_item:
+        # 如果没有 jwsession，则 登录 + 打卡
+        jwsession = leancloud.getJwsession(count)
+        task(check_item=check_item,jwsession=jwsession,leancloud=leancloud)
+        count+=1
+        time.sleep(20)
+#云函数登录入口
+def main_handler(event,context):
+    #读取配置文件
+    with open(os.path.join(os.path.dirname(__file__), "config.json"), "r", encoding="utf-8") as f:
+        datas = json.loads(f.read())
+    #获取appId和Key
+    appId,masterKey= datas.get("appId"),datas.get("masterKey")
+    leancloud=leanCloud(appId=appId,masterKey=masterKey)
+    _check_item = datas.get("user_info", [])
+    count = 1
+    for check_item in _check_item:
+        # 如果没有 jwsession，则 登录 + 打卡
+        jwsession = leancloud.getJwsession(count)
+        task(check_item=check_item,jwsession=jwsession,leancloud=leancloud)
+        count+=1
+        time.sleep(20)
 
 

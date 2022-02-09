@@ -1,17 +1,26 @@
 {
+  "appId": "xxxxxx",
+  "masterKey": "xxxxxxxxxxxxxx",
   "user_info": [
     {
-      "WZXY_USERNAME": "155xxxx   一般为手机号",
-      "WZXY_PASSWORD": "xxxx 小程序密码",
-      "location": "1xx.xxxxxx,3x.xxxxxx 经纬度 ",
-      "pushPlus_notifyToken": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx   token",
+      "WZXY_USERNAME": "15512345778",
+      "WZXY_PASSWORD": "snnusnnu",
+      "location": "xxxxxxxxx,xxxxxxxxx",
+      "pushPlus_notifyToken": "xxx",
+      "mark": "王五"
+    },
+    {
+      "WZXY_USERNAME": "xxxx",
+      "WZXY_PASSWORD": "xxxx",
+      "location": "xxxxx,xxxxx",
+      "pushPlus_notifyToken": "xxxxx",
       "mark": "张三"
     },
     {
       "WZXY_USERNAME": "15512345678",
       "WZXY_PASSWORD": "snnusnnu",
       "location": "xxxxxxxxx,xxxxxxxxx",
-      "pushPlus_notifyToken": "4f47xxxxxxxxxxxxae8f8633269xxxxx1",
+      "pushPlus_notifyToken": "xxxxxxxxxxxxxx",
       "mark": "李四"
     }
   ]
