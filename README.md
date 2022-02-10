@@ -1,6 +1,6 @@
-# WoZaiXiaoYuanPuncher-SNNU02
+# WoZaiXiaoYuanPuncher
 
-##### 我在校园自动健康打卡程序 陕西师范大学版本 
+##### 我在校园自动健康打卡程序 
 ##### 无需抓包 填写基本信息即可
 ##### 腾讯云函数 部署执行
 
