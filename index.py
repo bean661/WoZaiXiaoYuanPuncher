@@ -127,7 +127,6 @@ class WoZaiXiaoYuanPuncher:
                     "province": res['data'][0]['province'],
                     "city": res['data'][0]['city'],
                     "district": res['data'][0]['district'],
-                    'street': res['data'][0]['street'],
                     'qContent':res['data'][0]['qContent']
                 }
                 print("今天已经打过卡了")
