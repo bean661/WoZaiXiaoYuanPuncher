@@ -57,6 +57,7 @@ git clone git@github.com:Chorer/WoZaiXiaoYuanPuncher-cloudFunction.git
 #### 3. 创建云函数
 
 可参考教程：[健康打卡教程](https://note.youdao.com/s/WZqpW2p5)的云函数部署部分
+
 1）注册腾讯云账号并登录，进行实名认证 [函数服务 - Serverless - 控制台](https://console.cloud.tencent.com/scf/list?rid=1&ns=default)
 
 2）到 https://console.cloud.tencent.com/scf/list?rid=1&ns=default ，选择 “新建” ➔ “从头开始”，“事件函数” “运行环境：python3.6”，提交方法选择“本地上传zip包”，“高级配置”➔“环境配置”，内存选择“64MB”，初始化超时时间-“300”，执行超时时间“60”点击“完成”即可创建云函数
