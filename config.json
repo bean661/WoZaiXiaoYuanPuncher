@@ -1,27 +1,34 @@
-{
-  "appId": "xxxxxx",
-  "masterKey": "xxxxxxxxxxxxxx",
-  "user_info": [
-    {
-      "WZXY_USERNAME": "15512345778",
-      "WZXY_PASSWORD": "snnusnnu",
-      "location": "xxxxxxxxx,xxxxxxxxx",
-      "pushPlus_notifyToken": "xxx",
-      "mark": "王五"
+[
+  {
+    "wozaixiaoyaun_data":{
+      "username": "我在校园手机号",
+      "password": "我在校园密码",
+      "location":"打卡经纬度"
     },
-    {
-      "WZXY_USERNAME": "xxxx",
-      "WZXY_PASSWORD": "xxxx",
-      "location": "xxxxx,xxxxx",
-      "pushPlus_notifyToken": "xxxxx",
-      "mark": "张三"
+    "pushPlus_data":{
+      "notifyToken" : "公众号获取的token"
     },
-    {
-      "WZXY_USERNAME": "15512345678",
-      "WZXY_PASSWORD": "snnusnnu",
-      "location": "xxxxxxxxx,xxxxxxxxx",
-      "pushPlus_notifyToken": "xxxxxxxxxxxxxx",
-      "mark": "李四"
-    }
-  ]
-}
+    "leanCloud_data":{
+      "appId":"leancloud获取的appid",
+      "masterKey": "leancloud获取的masterKey",
+      "class_name": "用户对应的class 一个用户一个class 不能共用"
+    },
+    "mark": "Bean"
+  },
+  {
+    "wozaixiaoyaun_data":{
+      "username": "",
+      "password": "",
+      "location":""
+    },
+    "pushPlus_data":{
+      "notifyToken" : ""
+    },
+    "leanCloud_data":{
+      "appId":"",
+      "masterKey": "",
+      "class_name": ""
+    },
+    "mark": ""
+  }
+]
