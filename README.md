@@ -8,7 +8,13 @@
 目前只能进行健康打卡，即这种可以![](https://raw.githubusercontent.com/bean661/utils/main/daka.png)
 
 ### 更新情况
+2022-3-5
+
+* 增加邮编areacode信息
+
+
 2022-2-11
+
 * 采用坐标拾取功能，定位更加准确
 * 增加leancloud的Class属性值填写，多用户可以使用一个leancloud账户，多个Class名称进行配置
 
