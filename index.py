@@ -32,6 +32,7 @@ class leanCloud:
             "location": location
         })
         _res = res['regeocode']['addressComponent']
+        print(_res)
         location = location.split(',')
         sign_data = {
             "answers": '["0"]',
@@ -43,6 +44,7 @@ class leanCloud:
             "province": _res['province'],
             "township": _res['township'],
             "street": _res['streetNumber']['street'],
+            "areacode":_res['adcode']
         }
         return sign_data
         
@@ -230,7 +232,7 @@ def main_handler(event, context):
         # 如果没有 jwsession，则 登录 + 打卡
         jwsession = wzxy.leanCloud_obj.getJwsession()
         if jwsession == "" or jwsession is None:
-            print("使用账号密码登录")
+            print("jwsession不存在 或者为none使用账号密码登录")
             loginStatus = wzxy.login()
             if loginStatus:
                 print("登录成功,开始打卡")
