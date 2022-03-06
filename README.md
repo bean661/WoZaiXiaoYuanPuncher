@@ -44,7 +44,7 @@ https://www.aliyundrive.com/s/HaYyAYLHeEj
 
 #### 0. 克隆项目到本地
 
-手动点击GitHub页面黄色`下载`➡`下载ZIP`
+手动点击GitHub页面绿色`code`➡`下载ZIP`
 
 #### 1. 获取 pushPlus 的 token
 
