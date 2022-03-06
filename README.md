@@ -7,6 +7,10 @@
 核心代码来自于 [WoZaiXiaoYuanPuncher-cloudFunction](https://github.com/Chorer/WoZaiXiaoYuanPuncher-cloudFunction)。这个版本在原有代码的基础上做了一点修改，可以实现**腾讯云函数自动打卡 + 消息提醒**。只需要在云端部署函数，本地不需要做任何处理，打卡结果会自动发送到微信上。
 目前只能进行健康打卡，即这种可以![](https://raw.githubusercontent.com/bean661/utils/main/daka.png)
 
+### 视频教程
+
+https://www.aliyundrive.com/s/HaYyAYLHeEj
+
 ### 更新情况
 2022-3-5
 
@@ -59,7 +63,6 @@
 
 #### 3. 创建云函数
 
-可参考教程：[健康打卡教程](https://note.youdao.com/s/WZqpW2p5)的云函数部署部分
 
 1）注册腾讯云账号并登录，进行实名认证 [函数服务 - Serverless - 控制台](https://console.cloud.tencent.com/scf/list?rid=1&ns=default)
 
