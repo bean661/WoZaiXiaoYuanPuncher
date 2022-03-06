@@ -37,10 +37,7 @@
 
 #### 0. 克隆项目到本地
 
-```ba
-git clone git@github.com:Chorer/WoZaiXiaoYuanPuncher-cloudFunction.git
-```
-或者手动点击GitHub页面绿色`Code`➡`Download ZIP`
+手动点击GitHub页面绿色`Code`➡`Download ZIP`
 
 #### 1. 获取 pushPlus 的 token
 
