@@ -5,7 +5,12 @@
 ### 版本说明
 
 核心代码来自于 [WoZaiXiaoYuanPuncher-cloudFunction](https://github.com/Chorer/WoZaiXiaoYuanPuncher-cloudFunction)。这个版本在原有代码的基础上做了一点修改，可以实现**腾讯云函数自动打卡 + 消息提醒**。只需要在云端部署函数，本地不需要做任何处理，打卡结果会自动发送到微信上。
-目前只能进行健康打卡，即这种可以![](https://raw.githubusercontent.com/bean661/utils/main/daka.png)
+
+默认这种打卡
+[](https://raw.githubusercontent.com/bean661/utils/main/daka.png)
+
+# 如果你的打卡还要其他需要填写的问题 请手动抓包并更改index.py文件的answers值
+
 
 ### 视频教程
 
