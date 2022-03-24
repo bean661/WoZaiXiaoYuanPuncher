@@ -13,7 +13,7 @@
 
 ### 视频教程
 
-https://www.bilibili.com/video/BV1sP4y1g7sp
+https://www.bilibili.com/video/BV15r4y1W7K6/
 
 ### 更新情况
 2022-3-5
