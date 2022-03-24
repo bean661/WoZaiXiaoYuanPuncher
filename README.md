@@ -78,7 +78,7 @@ https://www.bilibili.com/video/BV15r4y1W7K6/
 1）“我在校园”账号配置项说明：
 
 * `username`：“我在校园”的账号，一般是你的手机号码
-* `password`：“我在校园”的密码，忘记了打开小程序重新设置就行（建议四个英文+四个数字 类似“wang1234” 复杂了可能不行）
+* `password`：“我在校园”的密码，忘记了打开小程序重新设置就行（建议四个英文+四个数字 类似“wang1234” 复杂了可能不行,改完密码半小时内不要登录小程序）
 * `location`：打卡位置的经纬度，[坐标拾取](https://api.map.baidu.com/lbsapi/getpoint/index.html)
 
 
