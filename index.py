@@ -111,6 +111,8 @@ class WoZaiXiaoYuanPuncher:
         self.session = requests.session()
         response = self.session.post(url=url, data=self.body, headers=self.header)
         res = json.loads(response.text)
+        date1=res['data']['list'][0]['date']
+        print(date1)
         # 如果 jwsession 无效，则重新 登录 + 打卡
         if res['code'] == -10:
             print('jwsession 无效，尝试账号密码打卡')
@@ -122,22 +124,7 @@ class WoZaiXiaoYuanPuncher:
             else:
                 print("登录失败")
         elif res['code'] == 0:
-            CurrentDate = utils.getCurrentDate()
-            if str(res['data'][0]['date']) == str(CurrentDate) :
-                self.sign_data = {
-                    "date": res['data'][0]['date'],
-                    "province": res['data'][0]['province'],
-                    "city": res['data'][0]['city'],
-                    "district": res['data'][0]['district'],
-                    'qContent':res['data'][0]['qContent']
-                }
-                print("今天已经打过卡了")
-                self.status_code = 2
-            else:
-                #开始打卡
-                print('未打卡')
-                self.doPunchIn()
-
+            self.doPunchIn()
     #打卡
     def doPunchIn(self):
         print('开始打卡')
