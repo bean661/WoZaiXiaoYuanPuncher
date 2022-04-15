@@ -16,6 +16,10 @@
 https://www.bilibili.com/video/BV15r4y1W7K6/
 
 ### 更新情况
+2022-4-15
+
+* 去除是否打过卡验证，每次提交都会正常打卡
+
 2022-3-5
 
 * 增加邮编areacode信息
