@@ -13,7 +13,8 @@
 
 ### 视频教程
 
-https://www.bilibili.com/video/BV15r4y1W7K6/
+https://www.aliyundrive.com/s/pLASEs97EDy
+
 
 ### 更新情况
 2022-4-17
