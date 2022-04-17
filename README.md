@@ -235,3 +235,4 @@ pip3 install leancloud -t .
 - 如使用者存在以上异常情况，请**立即停止使用此脚本**，并在小程序中**如实填报**
 - 使用者请务必不要泄露自己的 jwsession、masterKey、notifyToken
 - 使用此脚本产生的任何问题**由使用者负责**，与作者无关
+- https://gitee.com/Bean6560/images/raw/master/typora/QQ%E5%9B%BE%E7%89%8720220417221246.jpg
