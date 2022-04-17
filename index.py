@@ -4,31 +4,36 @@ import json
 import utils
 from urllib.parse import urlencode
 import leancloud
+import time
 
 
 class leanCloud:
     # 初始化 leanCloud 对象
-    def __init__(self,appId,masterKey,class_name):
-        leancloud.init(appId,master_key = masterKey)
+    def __init__(self, appId, masterKey, class_name):
+        leancloud.init(appId, master_key=masterKey)
         self.obj = leancloud.Query(class_name).first()
-    # 获取 jwsession        
+
+    # 获取 jwsession
     def getJwsession(self):
         return self.obj.get('jwsession')
-    # 设置 jwsession        
-    def setJwsession(self,value):
-        self.obj.set('jwsession',value)
+
+    # 设置 jwsession
+    def setJwsession(self, value):
+        self.obj.set('jwsession', value)
         self.obj.save()
+
     # 判断之前是否保存过地址信息
     def hasAddress(self):
         if self.obj.get('hasAddress') == False or self.obj.get('hasAddress') is None:
             return False
         else:
             return True
+
     # 请求地址信息
-    def requestAddress(self,location):
+    def requestAddress(self, location):
         # 根据经纬度求具体地址
         url2 = 'https://restapi.amap.com/v3/geocode/regeo'
-        res = utils.geoCode(url2,{
+        res = utils.geoCode(url2, {
             "location": location
         })
         _res = res['regeocode']['addressComponent']
@@ -44,10 +49,11 @@ class leanCloud:
             "province": _res['province'],
             "township": _res['township'],
             "street": _res['streetNumber']['street'],
-            "areacode":_res['adcode']
+            "areacode": _res['adcode'],
+            "timestampHeader":round(time.time())
         }
         return sign_data
-        
+
 
 class WoZaiXiaoYuanPuncher:
     def __init__(self, item):
@@ -60,7 +66,8 @@ class WoZaiXiaoYuanPuncher:
         # mark 打卡用户昵称
         self.mark = item['mark']
         # 初始化 leanCloud 对象
-        self.leanCloud_obj = leanCloud(self.leanCloud_data['appId'],self.leanCloud_data['masterKey'],self.leanCloud_data['class_name'])
+        self.leanCloud_obj = leanCloud(self.leanCloud_data['appId'], self.leanCloud_data['masterKey'],
+                                       self.leanCloud_data['class_name'])
         # 学校打卡时段
         self.seqs = []
         # 打卡结果
@@ -77,16 +84,16 @@ class WoZaiXiaoYuanPuncher:
             "Accept": "application/json, text/plain, */*"
         }
         # signdata  要保存的信息
-        self.sign_data =""
+        self.sign_data = ""
         # 请求体（必须有）
-        self.body = "{}"       
-        
+        self.body = "{}"
 
-    # 登录
+        # 登录
+
     def login(self):
         # 登录接口
         loginUrl = "https://gw.wozaixiaoyuan.com/basicinfo/mobile/login/username"
-        username,password = str(self.data['username']),str(self.data['password'])
+        username, password = str(self.data['username']), str(self.data['password'])
         url = f'{loginUrl}?username={username}&password={password}'
         self.session = requests.session()
         # 登录
@@ -97,9 +104,10 @@ class WoZaiXiaoYuanPuncher:
             self.leanCloud_obj.setJwsession(jwsession)
             return True
         else:
-            print("登录失败，请检查账号信息"+str(res))
+            print("登录失败，请检查账号信息" + str(res))
             self.status_code = 5
             return False
+
     # 获取打卡列表，判断当前打卡时间段与打卡情况，符合条件则自动进行打卡
     def PunchIn(self):
         print("查询是否打卡")
@@ -111,7 +119,7 @@ class WoZaiXiaoYuanPuncher:
         self.session = requests.session()
         response = self.session.post(url=url, data=self.body, headers=self.header)
         res = json.loads(response.text)
-        date1=res['data']['list'][0]['date']
+        date1 = res['data']['list'][0]['date']
         print(date1)
         # 如果 jwsession 无效，则重新 登录 + 打卡
         if res['code'] == -10:
@@ -125,7 +133,8 @@ class WoZaiXiaoYuanPuncher:
                 print("登录失败")
         elif res['code'] == 0:
             self.doPunchIn()
-    #打卡
+
+    # 打卡
     def doPunchIn(self):
         print('开始打卡')
         url = "https://student.wozaixiaoyuan.com/health/save.json"
@@ -135,7 +144,7 @@ class WoZaiXiaoYuanPuncher:
         sign_data = self.leanCloud_obj.requestAddress(self.data['location'])
         self.sign_data = sign_data
         data = urlencode(sign_data)
-        response = self.session.post(url=url, data=data, headers=self.header)
+        response = self.session.post(url, data=data, headers=self.header)
         response = json.loads(response.text)
         # 打卡情况
         if response["code"] == 0:
@@ -155,12 +164,12 @@ class WoZaiXiaoYuanPuncher:
         elif res == 3:
             return "❌ 打卡失败，当前不在打卡时间段内"
         elif res == 4:
-            return "❌ 打卡失败，jwsession 无效"            
+            return "❌ 打卡失败，jwsession 无效"
         elif res == 5:
             return "❌ 打卡失败，登录错误，请检查账号信息"
         else:
             return "❌ 打卡失败，发生未知错误"
-    
+
     # 推送打卡结果
     def sendNotification(self):
         notifyTime = utils.getCurrentTime()
@@ -189,6 +198,8 @@ class WoZaiXiaoYuanPuncher:
         else:
             print("pushplus: " + r)
             print("消息经 pushplus 推送失败，请检查错误信息")
+
+
 if __name__ == '__main__':
     # 读取配置文件
     configs = utils.processJson("config.json").read()
@@ -209,6 +220,7 @@ if __name__ == '__main__':
             print("检测到jwsession存在，使用jwsession打卡")
             wzxy.PunchIn()
         wzxy.sendNotification()
+
 
 def main_handler(event, context):
     # 读取配置文件
