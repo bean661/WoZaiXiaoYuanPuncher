@@ -181,7 +181,7 @@ pip3 install leancloud -t .
 
 1）模板消息：
 
-<img src="https://raw.githubusercontent.com/bean661/utils/main/notify.png" width="400px" height="650px" alt="daka" align=center>
+<img src="https://raw.githubusercontent.com/bean661/utils/main/notify.png" width="500px" height="500px" alt="daka" align=center>
 
 
 进入即可查看打卡的信息。
@@ -190,7 +190,8 @@ pip3 install leancloud -t .
 
 点击控制台左侧的“触发管理”，“创建触发器”新建一个云函数触发器。设置如下：
 
-![](https://github.com/bean661/utils/raw/main/chufaqi.png)
+<img src="https://github.com/bean661/utils/raw/main/chufaqi.png" width="900px" height="600px" alt="daka" align=center>
+
 
 触发时间使用的是 Cron 表达式，这里的意思是每天 6点、8 点各触发（打卡）一次，可以自己修改，按照自己学校规定的打卡时间段来设置。
 
@@ -237,4 +238,4 @@ pip3 install leancloud -t .
 - 如使用者存在以上异常情况，请**立即停止使用此脚本**，并在小程序中**如实填报**
 - 使用者请务必不要泄露自己的 jwsession、masterKey、notifyToken
 - 使用此脚本产生的任何问题**由使用者负责**，与作者无关
-- <img src="https://gitee.com/Bean6560/images/raw/master/typora/QQ%E5%9B%BE%E7%89%8720220417221246.jpg" width="400px" height="650px" alt="daka" align=center>
+- <img src="https://gitee.com/Bean6560/images/raw/master/typora/QQ%E5%9B%BE%E7%89%8720220417221246.jpg" width="500px" height="500px" alt="daka" align=center>
