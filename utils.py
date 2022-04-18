@@ -1,20 +1,8 @@
 import json
 import datetime
 import time
-import pytz
 import random
 import requests
-
-# 获取当前时间(云函数的运行环境是 0 时区时间，需要 +8 转化为北京时间）
-def getCurrentTime():
-  return datetime.datetime.now(pytz.timezone('Asia/Shanghai')).strftime("%Y-%m-%d %H:%M:%S")
-# 获取当前时间(云函数的运行环境是 0 时区时间，需要 +8 转化为北京时间）
-def getCurrentDate():
-  return datetime.datetime.now(pytz.timezone('Asia/Shanghai')).strftime("%Y-%m-%d")
-
-# 获取当前小时
-def getCurrentHour():
-  return datetime.datetime.now(pytz.timezone('Asia/Shanghai')).hour
 
 # 获取随机温度
 def getRandomTemprature(temperature):
