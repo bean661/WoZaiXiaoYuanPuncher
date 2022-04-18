@@ -9,7 +9,6 @@
 默认这种打卡
 
 <img src="https://gitee.com/Bean6560/images/raw/master/typora/daka.png" width="400px" height="650px" alt="daka" align=center>
-![](https://gitee.com/Bean6560/images/raw/master/typora/daka.png =200x200)
 
 ## 如果你的打卡还要其他需要填写的问题 请手动抓包并更改index.py文件的answers值
 
@@ -181,7 +180,8 @@ pip3 install leancloud -t .
 修改完成后点击`部署`并`测试`，如果没有收到信息，点击上方“日志查询”进行查看。如果微信有收到 pushPlus 公众号发来的信息，说明设置 ok。效果如下图所示：
 
 1）模板消息：
-![](https://raw.githubusercontent.com/bean661/utils/main/notify.png)
+
+<img src="https://raw.githubusercontent.com/bean661/utils/main/notify.png" width="400px" height="650px" alt="daka" align=center>
 
 
 进入即可查看打卡的信息。
@@ -237,4 +237,4 @@ pip3 install leancloud -t .
 - 如使用者存在以上异常情况，请**立即停止使用此脚本**，并在小程序中**如实填报**
 - 使用者请务必不要泄露自己的 jwsession、masterKey、notifyToken
 - 使用此脚本产生的任何问题**由使用者负责**，与作者无关
-- ![](https://gitee.com/Bean6560/images/raw/master/typora/QQ%E5%9B%BE%E7%89%8720220417221246.jpg)
+- <img src="https://gitee.com/Bean6560/images/raw/master/typora/QQ%E5%9B%BE%E7%89%8720220417221246.jpg" width="400px" height="650px" alt="daka" align=center>
