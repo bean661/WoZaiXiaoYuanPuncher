@@ -119,8 +119,6 @@ class WoZaiXiaoYuanPuncher:
         self.session = requests.session()
         response = self.session.post(url=url, data=self.body, headers=self.header)
         res = json.loads(response.text)
-        date1 = res['data']['list'][0]['date']
-        print(date1)
         # 如果 jwsession 无效，则重新 登录 + 打卡
         if res['code'] == -10:
             print('jwsession 无效，尝试账号密码打卡')
