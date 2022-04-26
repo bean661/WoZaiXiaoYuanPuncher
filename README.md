@@ -9,7 +9,10 @@
 
 青龙版本：
 
-* 三个一：[bean661/wozaixiaoyuanjkdkql: 我在校园 健康打卡 适配青龙面板 脚本 (github.com)](https://github.com/bean661/wozaixiaoyuanjkdkql)
+* ：[bean661/wozaixiaoyuanjkdkql: 我在校园 健康打卡 适配青龙面板 脚本 (github.com)](https://github.com/bean661/wozaixiaoyuanjkdkql)
+
+
+
 
 ### 版本说明
 
