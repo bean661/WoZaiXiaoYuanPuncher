@@ -24,7 +24,7 @@
 <img src="https://gitee.com/Bean6560/images/raw/master/typora/QQ%E5%9B%BE%E7%89%8720220417221246.jpg" width="500px" height="500px" alt="daka" align=center>
 ## 如果你的打卡还要其他需要填写的问题 请手动抓包并更改index.py文件的answers值
 
-### 视频教程     [注意：python版本选择3.7]
+### 视频教程     [注意：python版本选择3.7 ,以及requests依赖 视频没说 文字有说]
 
 https://www.aliyundrive.com/s/pLASEs97EDy
 
@@ -177,12 +177,17 @@ https://www.aliyundrive.com/s/pLASEs97EDy
     ]
     ```
 
-#### 5. 安装 leanCloud 库
+#### 5. 安装 leanCloud 、requests 库
 
 到刚才新创建的云函数中，`ctrl + shift + ~` 新建终端，`cd src`进入 index.py 所在的文件夹中，通过如下命令安装 leanCloud 库：
 
 ```cmd
 pip3 install leancloud -t .
+```
+
+再次复制 回车
+```cmd
+pip3 install requests -t .
 ```
 
 可能会报错，主要是因为相关库版本不匹配的问题，不影响正常使用。看到 `successfully installed` 就说明安装成功了。
