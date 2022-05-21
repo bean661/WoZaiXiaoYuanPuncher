@@ -189,7 +189,7 @@ https://www.aliyundrive.com/s/pLASEs97EDy
 
 到刚才新创建的云函数中，安装依赖库
 
-![image-20220521164713774](https://gitee.com/Bean6560/images/raw/master/typora/image-20220521164713774.png)
+点击上方的“终端”-“新终端”
 
 通过如下命令安装 leanCloud 库：
 
@@ -197,10 +197,13 @@ https://www.aliyundrive.com/s/pLASEs97EDy
 pip3 install leancloud -t .
 ```
 
-再次复制 回车
+回车安装
+
 ```cmd
 pip3 install requests -t .
 ```
+
+再次复制 回车
 
 可能会报错，主要是因为相关库版本不匹配的问题，不影响正常使用。看到 `successfully installed` 就说明安装成功了。
 
@@ -217,14 +220,23 @@ pip3 install requests -t .
 
 #### 7. 实现自动打卡
 
-点击控制台左侧的“触发管理”，“创建触发器”新建一个云函数触发器。设置如下：
+点击上方的“触发器管理”，“创建触发器”新建一个云函数触发器。设置如下：
 
-<img src="https://github.com/bean661/utils/raw/main/chufaqi.png" width="900px" height="600px" alt="daka" align=center>
+触发器类型：定时触发器
 
+名称：随意
 
-触发时间使用的是 Cron 表达式，这里的意思是每天 6点、8 点各触发（打卡）一次，可以自己修改，按照自己学校规定的打卡时间段来设置。
+触发方式：指定时间
 
-最后提交就可以了，以后到点了就会自动打卡并把打卡结果发到你的微信上。
+时区：Asia/Shanghai
+
+指定时间：自己想几点打卡就设置几点
+
+指定日期 留空
+
+指定星期 留空
+
+点击确定即可，以后到点了就会自动打卡并把打卡结果发到你的微信上。
 
 ### Q & A
 
