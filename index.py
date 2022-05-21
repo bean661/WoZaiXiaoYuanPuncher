@@ -220,7 +220,7 @@ if __name__ == '__main__':
         wzxy.sendNotification()
 
 
-def main_handler(event, context):
+def handler(event, context):
     # 读取配置文件
     configs = utils.processJson("config.json").read()
     # 遍历每个用户的账户数据，进行打卡
