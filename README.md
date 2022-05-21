@@ -1,6 +1,6 @@
 **目录：**
 
-腾讯云云函数版本：
+阿里云云函数版本：
 
 * 健康打卡：[bean661/WoZaiXiaoYuanPuncher: 我在校园自动健康打卡程序 (github.com)](https://github.com/bean661/WoZaiXiaoYuanPuncher)
 * 日检日报：[bean661/WoZaiXiaoYuanDay: 我在校园 日检日报 (github.com)](https://github.com/bean661/WoZaiXiaoYuanDay)
@@ -30,6 +30,10 @@ https://www.aliyundrive.com/s/pLASEs97EDy
 
 
 ### 更新情况
+2022-5-21
+
+* 由于腾讯云函数收费 ，所以教程更新为阿里云（目前免费），之前使用腾讯云函数的选择付费或者转移到阿里云
+
 2022-4-17
 
 * 增加打卡提交信息，感谢张佬
@@ -88,10 +92,13 @@ https://www.aliyundrive.com/s/pLASEs97EDy
 
 #### 3. 创建云函数
 
+1）阿里云账号并登录，进行实名认证 [函数计算 FC (aliyun.com)](https://fcnext.console.aliyun.com/cn-hangzhou/services)
 
-1）注册腾讯云账号并登录，进行实名认证 [函数服务 - Serverless - 控制台](https://console.cloud.tencent.com/scf/list?rid=1&ns=default)
+2）到[函数计算 FC (aliyun.com)](https://fcnext.console.aliyun.com/cn-hangzhou/services) ，选择 “创建服务” ➔ “名称”：wzxy，其他默认，点击确定
 
-2）到 https://console.cloud.tencent.com/scf/list?rid=1&ns=default ，选择 “新建” ➔ “从头开始”，“事件函数” “运行环境：python3.7”，提交方法选择“本地上传文件夹”，“高级配置”➔“环境配置”，内存选择“64MB”，初始化超时时间-“300”，执行超时时间“60”点击“完成”即可创建云函数
+​		“创建函数”-“从零开始创建”-函数名称：wzxy-运行环境：python3.6-请求处理程序类型：处理 HTTP 请求-实例类型：弹性实例-内存规格：512 MB-请求处理程序：index.handler     点击创建
+
+​		创建完成后会跳转到代码页面，在左侧会看到index.py文件，鼠标光标放在index.py文件下方“点击右键”-上传文件，把压缩包的所有文件上传即可
 
 #### 4. 修改配置文件
 
@@ -114,6 +121,7 @@ https://www.aliyundrive.com/s/pLASEs97EDy
 * `masterKey`：之前在 leanCloud 获取的 masterKey
 * `class_name`:Info ,一个用户对应一个Class，多用户请创建其他用户的Class,步骤在2.3) 如Class为Info_wang。
   
+
 4）mark 配置项说明：
 * `mark`：张三 这个可以随意配置，相当于知道给谁打卡的，到时候方便查看结果。
 
@@ -179,7 +187,11 @@ https://www.aliyundrive.com/s/pLASEs97EDy
 
 #### 5. 安装 leanCloud 、requests 库
 
-到刚才新创建的云函数中，`ctrl + shift + ~` 新建终端，`cd src`进入 index.py 所在的文件夹中，通过如下命令安装 leanCloud 库：
+到刚才新创建的云函数中，安装依赖库
+
+![image-20220521164713774](https://gitee.com/Bean6560/images/raw/master/typora/image-20220521164713774.png)
+
+通过如下命令安装 leanCloud 库：
 
 ```cmd
 pip3 install leancloud -t .
@@ -194,7 +206,7 @@ pip3 install requests -t .
 
 #### 6. 部署和测试
 
-修改完成后点击`部署`并`测试`，如果没有收到信息，点击上方“日志查询”进行查看。如果微信有收到 pushPlus 公众号发来的信息，说明设置 ok。效果如下图所示：
+修改完成后点击`保存并部署`并`调用`，如果没有收到信息，点击上方“日志输出”进行查看。如果微信有收到 pushPlus 公众号发来的信息，说明设置 ok。效果如下图所示：
 
 1）模板消息：
 
