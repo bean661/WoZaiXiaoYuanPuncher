@@ -22,7 +22,7 @@
 
 <img src="https://gitee.com/Bean6560/images/raw/master/typora/daka.png" width="400px" height="650px" alt="daka" align=center>
 <img src="https://gitee.com/Bean6560/images/raw/master/typora/QQ%E5%9B%BE%E7%89%8720220417221246.jpg" width="500px" height="500px" alt="daka" align=center>
-## 如果你的打卡还要其他需要填写的问题 请手动抓包并更改index.py文件的answers值
+##  如果你的打卡还要其他需要填写的问题 请手动抓包并更改index.py文件的answers值
 
 ### 视频教程     [注意：仅供参考 之前的老版视频 建议先看下方文字教程]
 
