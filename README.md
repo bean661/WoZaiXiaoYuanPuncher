@@ -114,6 +114,7 @@ https://www.aliyundrive.com/s/pLASEs97EDy
 2）“pushPlus” 账号配置项说明：
 
 * `notifyToken`：之前你从 pushPlus 公众号那里获取的 token
+* `onlyWrongNotify`：true或false true：仅打卡失败推送 false：打卡成功失败都会推送
 
 3）“leanCloud” 账号配置项说明：
 
