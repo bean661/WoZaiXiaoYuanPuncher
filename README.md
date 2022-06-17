@@ -30,6 +30,10 @@ https://www.aliyundrive.com/s/pLASEs97EDy
 
 
 ### 更新情况
+2022-6-17
+
+* 新增是否仅打卡失败推送配置项
+
 2022-5-21
 
 * 由于腾讯云函数收费 ，所以教程更新为阿里云（目前免费），之前使用腾讯云函数的选择付费或者转移到阿里云
@@ -137,7 +141,8 @@ https://www.aliyundrive.com/s/pLASEs97EDy
         "location":"133.333333,33.333333"
         },
         "pushPlus_data":{
-        "notifyToken" : "4d25976cc88888ae8f8688889780bfe1"
+        "notifyToken" : "4d25976cc88888ae8f8688889780bfe1",
+        "onlyWrongNotify" : "false"
         },
         "leanCloud_data":{
         "appId":"p8888888888888888888888j-aaaaoHsz",
@@ -158,7 +163,8 @@ https://www.aliyundrive.com/s/pLASEs97EDy
             "location":"133.333333,33.333333"
             },
             "pushPlus_data":{
-            "notifyToken" : "4d25976cc88888ae8f8688889780bfe1"
+            "notifyToken" : "4d25976cc88888ae8f8688889780bfe1",
+            "onlyWrongNotify" : "false"
             },
             "leanCloud_data":{
             "appId":"p8888888888888888888888j-aaaaoHsz",
@@ -174,7 +180,8 @@ https://www.aliyundrive.com/s/pLASEs97EDy
             "location":"144.444444,34.444444"
             },
             "pushPlus_data":{
-            "notifyToken" : "4d25976cc88888ae8f8688889780bfe1"
+            "notifyToken" : "4d25976cc88888ae8f8688889780bfe1",
+            "onlyWrongNotify" : "false"
             },
             "leanCloud_data":{
             "appId":"p8888888888888888888888j-aaaaoHsz",
