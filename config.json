@@ -6,7 +6,8 @@
       "location":"打卡经纬度"
     },
     "pushPlus_data":{
-      "notifyToken" : "公众号获取的token"
+      "notifyToken" : "公众号获取的token",
+      "onlyWrongNotify" : "true"
     },
     "leanCloud_data":{
       "appId":"leancloud获取的appid",
@@ -22,7 +23,8 @@
       "location":""
     },
     "pushPlus_data":{
-      "notifyToken" : ""
+      "notifyToken" : "",
+      "onlyWrongNotify" : "true"
     },
     "leanCloud_data":{
       "appId":"",
