@@ -20,8 +20,10 @@
 
 默认这种打卡
 
-<img src="https://gitee.com/Bean6560/images/raw/master/typora/daka.png" width="400px" height="650px" alt="daka" align=center>
-<img src="https://gitee.com/Bean6560/images/raw/master/typora/QQ%E5%9B%BE%E7%89%8720220417221246.jpg" width="500px" height="500px" alt="daka" align=center>
+<img src="https://cdn.jsdelivr.net/gh/bean661/images@main/img/202206191502690.png" width="300px" height="600px" alt="daka" align=center>
+
+<img src="https://cdn.jsdelivr.net/gh/bean661/images@main/img/202206191504239.jpg" width="300px" height="350px" alt="daka" align=center>
+
 ##  如果你的打卡还要其他需要填写的问题 请手动抓包并更改index.py文件的answers值
 
 ### 视频教程     [注意：仅供参考 之前的老版视频 建议先看下方文字教程]
@@ -221,7 +223,7 @@ pip3 install requests -t .
 
 1）模板消息：
 
-<img src="https://raw.githubusercontent.com/bean661/utils/main/notify.png" width="500px" height="500px" alt="daka" align=center>
+<img src="https://raw.githubusercontent.com/bean661/utils/main/notify.png" width="400px" height="300px" alt="daka" align=center>
 
 
 进入即可查看打卡的信息。
@@ -289,4 +291,4 @@ pip3 install requests -t .
 - 使用此脚本产生的任何问题**由使用者负责**，与作者无关
 
 ### 赞赏支持
-<img src="https://gitee.com/Bean6560/images/raw/master/typora/QQ%E5%9B%BE%E7%89%8720220430120324.jpg" width="500px" height="650px" alt="daka" align=center>
+<img src="https://cdn.jsdelivr.net/gh/bean661/images@main/img/202206191506661.jpg" width="300px" height="400px" alt="daka" align=center>
