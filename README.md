@@ -32,6 +32,10 @@ https://www.aliyundrive.com/s/pLASEs97EDy
 
 
 ### 更新情况
+2022-7-5
+
+* 增加citycode和towncode
+
 2022-6-17
 
 * 新增是否仅打卡失败推送配置项
