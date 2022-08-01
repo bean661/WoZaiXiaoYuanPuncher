@@ -204,6 +204,7 @@ class WoZaiXiaoYuanPuncher:
             print("消息经 pushplus 推送失败，请检查错误信息")
 
 def startdk():
+
     # 读取配置文件
     configs = utils.processJson("config.json").read()
     # 遍历每个用户的账户数据，进行打卡
@@ -227,4 +228,6 @@ if __name__ == '__main__':
     startdk()
 
 def handler(event, context):
+    startdk()
+def main_handler(event, context):
     startdk()
