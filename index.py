@@ -33,27 +33,27 @@ class leanCloud:
     # 请求地址信息
     def requestAddress(self, location):
         # 根据经纬度求具体地址
-        url2 = 'https://restapi.amap.com/v3/geocode/regeo'
-        res = utils.geoCode(url2, {
-            "location": location
-        })
-        _res = res['regeocode']['addressComponent']
-        print(_res)
+        url = 'https://apis.map.qq.com/ws/geocoder/v1/'
         location = location.split(',')
+        res = utils.geoCode(url, {
+            "location": location[1] + "," + location[0]
+        })
+        _res = res['result']
+        # location = location.split(',')
         sign_data = {
             "answers": '["0"]',
             "latitude": location[1],
             "longitude": location[0],
             "country": '中国',
-            "city": _res['city'],
-            "district": _res['district'],
-            "province": _res['province'],
-            "township": _res['township'],
-            "street": _res['streetNumber']['street'],
-            "towncode": "0",
-            "citycode": "0",
-            "areacode": _res['adcode'],
-            "timestampHeader":round(time.time())
+            "city": _res['address_component']['city'],
+            "district": _res['address_component']['district'],
+            "province": _res['address_component']['province'],
+            "township": _res['address_reference']['town']['title'],
+            "street": _res['address_component']['street_number'],
+            "towncode": _res['address_reference']['town']['id'],
+            "citycode": _res['ad_info']['city_code'],
+            "areacode": _res['ad_info']['adcode'],
+            "timestampHeader": round(time.time())
         }
         return sign_data
 
